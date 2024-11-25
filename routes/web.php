@@ -3,11 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 // ROTAS DE AUTENTICAÇÃO
-Route::get('/login', 'Auth\LoginController@loginView')->name('loginView');
+// Route::get('/login', 'Auth\LoginController@loginView')->name('loginView');
 Route::get('/esqueci-minha-senha', 'Auth\LoginController@resetPasswordView')->name('resetPasswordView');
 Route::post('/esqueci-minha-senha', 'Auth\LoginController@resetPassword')->name('resetPassword');
 Route::get('/buscar-pin', 'Auth\LoginController@getPin')->name('getPin');
-Route::post('/login', 'Auth\LoginController@login')->name('login');
+// Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/sair', 'Auth\LoginController@logout')->name('logout');
 Route::get('municipe/sair', 'Auth\LoginController@logoutNotServer')->name('logout-municipe');
 
@@ -45,3 +45,9 @@ Route::get('/pessoas', 'ApiController@getPeople')->name('people');
 Route::get('/valor-servico', 'ApiController@getServiceValue')->name('service-value');
 
 Route::get('/teste', 'ApiController@teste')->name('teste');
+
+
+// ROTAS DE AUTENTICAÇÃO
+Route::get('/login', 'Autenticacao\LoginController@chamaViewLogin')->name('chamaViewLogin');
+Route::post('/login', 'Autenticacao\LoginController@login')->name('login');
+Route::get('/logout', 'Autenticacao\LoginController@logout')->name('logout');
