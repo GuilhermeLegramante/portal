@@ -3,11 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 // ROTAS DE AUTENTICAÇÃO
-// Route::get('/login', 'Auth\LoginController@loginView')->name('loginView');
+Route::get('/login-contracheque', 'Auth\LoginController@loginView')->name('loginView'); // alterado só no projeto novo do portal
 Route::get('/esqueci-minha-senha', 'Auth\LoginController@resetPasswordView')->name('resetPasswordView');
 Route::post('/esqueci-minha-senha', 'Auth\LoginController@resetPassword')->name('resetPassword');
 Route::get('/buscar-pin', 'Auth\LoginController@getPin')->name('getPin');
-// Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::post('/login-contracheque', 'Auth\LoginController@login')->name('login'); // alterado só no projeto novo do portal
 Route::get('/sair', 'Auth\LoginController@logout')->name('logout');
 Route::get('municipe/sair', 'Auth\LoginController@logoutNotServer')->name('logout-municipe');
 
