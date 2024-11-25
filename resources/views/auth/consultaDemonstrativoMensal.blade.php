@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'hsContracheque - Consulta Demonstrativo Mensal')
+@section('title', 'hsPortal - Consulta Demonstrativo Mensal')
 
 @section('content_header')
 
@@ -18,8 +18,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i
-                                class="fas fa-laptop-house"></i>
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="fas fa-laptop-house"></i>
                             Meus Dados</a></li>
                     <li class="breadcrumb-item active"><i class="far fa-calendar-alt"></i> Demonstrativo Mensal</li>
                 </ol>
@@ -104,8 +103,8 @@
 @endsection
 
 @section('footer')
-    <strong> <a href="#">HardSoft Sistemas</a> {{ date('Y') }}</strong> -
-    v{{ config('messages.version') }}
+<strong> <a href="#">HardSoft Sistemas</a> {{ date('Y') }}</strong> -
+v{{ config('messages.version') }}
 @endsection
 
 @section('css')

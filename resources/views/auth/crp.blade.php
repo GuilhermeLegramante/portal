@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'hsContracheque - CRP')
+@section('title', 'hsPortal - CRP')
 
 @section('content_header')
 
@@ -31,8 +31,8 @@
 @endsection
 
 @section('footer')
-    <strong> <a href="#">HardSoft Sistemas</a> {{ date('Y') }}</strong> -
-    v{{ config('messages.version') }}
+<strong> <a href="#">HardSoft Sistemas</a> {{ date('Y') }}</strong> -
+v{{ config('messages.version') }}
 @endsection
 
 @section('css')

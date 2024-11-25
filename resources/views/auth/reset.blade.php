@@ -1,6 +1,6 @@
 @extends('adminlte::master')
 
-@section('title', 'hsContracheque - Esqueci minha Senha')
+@section('title', 'hsPortal - Esqueci minha Senha')
 
 @section('adminlte_css_pre')
 <link rel="icon" href="{{ URL::asset('img/logo-nova.png') }}" type="image/x-icon" />
@@ -30,8 +30,7 @@
 @section('body')
 <div class="login-page" style="background-image: url('img/fundo-light.jpg');
 background-size: cover; width:100%;">
-    <div class="login-box"
-        style="border-radius: 12px; background: #ffffff; opacity: 100%; position: absolute; z-index: 99;">
+    <div class="login-box" style="border-radius: 12px; background: #ffffff; opacity: 100%; position: absolute; z-index: 99;">
         @include('partials.login-logo-and-text')
 
         <div class="card">

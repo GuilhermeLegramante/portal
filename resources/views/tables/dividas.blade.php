@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'hsContracheque - Dívidas Segurado')
+@section('title', 'hsPortal - Dívidas Segurado')
 
 @section('content_header')
 
@@ -14,8 +14,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i
-                                class="fas fa-laptop-house"></i>
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="fas fa-laptop-house"></i>
                             Meus Dados</a></li>
                     <li class="breadcrumb-item active"><i class="fas fa-notes-medical"></i> Dívidas do Segurado</li>
                 </ol>

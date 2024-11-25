@@ -12,7 +12,7 @@ class SendPinMarkdown extends Mailable
 
     private $cpf;
     private $pin;
-    public $subject = "PIN hsContracheque";
+    public $subject = "PIN hsPortal";
 
     /**
      * Create a new message instance.

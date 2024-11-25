@@ -1,6 +1,6 @@
 @extends('adminlte::master')
 
-@section('title', 'hsContracheque - Login')
+@section('title', 'hsPortal - Login')
 
 @section('adminlte_css_pre')
 <link rel="stylesheet" href="{{ asset('vendor/icheck-bootstrap/icheck-bootstrap.min.css') }}">

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'hsContracheque - CRP')
+@section('title', 'hsPortal - CRP')
 
 @section('content_header')
 
