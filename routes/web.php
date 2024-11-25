@@ -51,3 +51,9 @@ Route::get('/teste', 'ApiController@teste')->name('teste');
 Route::get('/login', 'Autenticacao\LoginController@chamaViewLogin')->name('chamaViewLogin');
 Route::post('/login', 'Autenticacao\LoginController@login')->name('login');
 Route::get('/logout', 'Autenticacao\LoginController@logout')->name('logout');
+
+
+Route::group(['middleware' => ['autenticacao']], function () {
+    Route::get('/', 'Autenticacao\LoginController@chamaViewPortal')->name('portal');
+    Route::post('/edicaoDadosUsuario', 'Usuario\UsuarioController@edicaoDadosUsuario')->name('edicaoDadosUsuario');
+});
