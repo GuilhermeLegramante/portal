@@ -14,7 +14,7 @@ return [
     |
      */
 
-    'title' => 'hsContracheque',
+    'title' => 'hsPortal',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,7 +45,7 @@ return [
     |
      */
 
-    'logo' => '<b>hs</b> Contracheque',
+    'logo' => '<b>hs</b> Portal',
     'logo_img' => 'vendor/adminlte/dist/img/logo.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
