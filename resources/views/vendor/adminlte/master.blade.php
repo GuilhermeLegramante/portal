@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">  --}}
     <meta name="csrf-token" content="{{csrf_token()}}">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>@yield('title_prefix', config('adminlte.title_prefix', ''))
-
         @yield('title', config('adminlte.title', 'AdminLTE 3'))
         @yield('title_postfix', config('adminlte.title_postfix', ''))</title>
     @if(! config('adminlte.enabled_laravel_mix'))
@@ -22,6 +22,8 @@
 
     @yield('adminlte_css')
     <link rel="stylesheet" href="{{ asset('css/admin_custom.css') }}">
+
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     @else
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -50,7 +52,11 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
     @endif
+
+    @livewireStyles
+
 </head>
+
 <body class="@yield('classes_body')" @yield('body_data')>
 
     @yield('body')
@@ -71,6 +77,10 @@
     <script src="{{ mix('js/app.js') }}"></script>
     @endif
 
+    @livewireScripts
+
+    @stack('scripts')
 
 </body>
+
 </html>

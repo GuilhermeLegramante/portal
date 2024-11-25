@@ -2,7 +2,7 @@
 
 @section('adminlte_css_pre')
 <link rel="stylesheet" href="{{ asset('vendor/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-<link rel="icon" href="{{ URL::asset('img/logo-nova.png') }}" type="image/x-icon" />
+<link rel="icon" href="{{ URL::asset('img/logo.png') }}" type="image/x-icon" />
 @stop
 
 @section('adminlte_css')
@@ -72,8 +72,19 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
 @php( $dashboard_url = $dashboard_url ? url($dashboard_url) : '' )
 @endif
 
+@php
+// session_start();
+// $nomeUsuario = $_SESSION['nomeusuario'];
+@endphp
+
+
+
 @section('body')
+
+
+
 <div class="wrapper">
+
     @if(config('adminlte.layout_topnav') || View::getSection('layout_topnav'))
     <nav
         class="main-header navbar {{config('adminlte.classes_topnav_nav', 'navbar-expand-md')}} {{config('adminlte.classes_topnav', 'navbar-white navbar-light')}}">
@@ -124,6 +135,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                             <span class="sr-only">{{ __('adminlte::adminlte.toggle_navigation') }}</span>
                         </a>
                     </li>
+
                     @each('adminlte::partials.menu-item-top-nav-left', $adminlte->menu(), 'item')
                     @yield('content_top_nav_left')
                 </ul>
@@ -132,31 +144,33 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                     class="navbar-nav ml-auto @if(config('adminlte.layout_topnav') || View::getSection('layout_topnav'))order-1 order-md-3 navbar-no-expand @endif">
                     @yield('content_top_nav_right')
                     @each('adminlte::partials.menu-item-top-nav-right', $adminlte->menu(), 'item')
-                    @if(Auth::user())
+
                     @if(config('adminlte.usermenu_enabled'))
+                    <li style="margin-top: 5px;">
+                        <span>{{ Session::get('nome') }}</span>
+                    </li>
+
                     <li class="nav-item dropdown user-menu">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                             @if(config('adminlte.usermenu_image'))
-                            <img src="{{ Auth::user()->adminlte_image() }}" class="user-image img-circle elevation-2"
-                                alt="{{ Auth::user()->name }}">
+                            <img src="" class="user-image img-circle elevation-2" alt="">
                             @endif
-                            <span @if(config('adminlte.usermenu_image'))class="d-none d-md-inline"
-                                @endif>{{ Auth::user()->name }}</span>
+                            {{-- <span @if(config('adminlte.usermenu_image'))class="d-none d-md-inline"
+                                @endif>{{$_SESSION['nomeusuario']}}</span> --}}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                             @if(!View::hasSection('usermenu_header') && config('adminlte.usermenu_header'))
                             <li
                                 class="user-header {{ config('adminlte.usermenu_header_class', 'bg-primary') }} @if(!config('adminlte.usermenu_image'))h-auto @endif">
                                 @if(config('adminlte.usermenu_image'))
-                                <img src="{{ Auth::user()->adminlte_image() }}" class="img-circle elevation-2"
-                                    alt="{{ Auth::user()->name }}">
+                                <img src="{{ url('/') }}/img/brasao.png" class="img-circle elevation-2" alt="">
                                 @endif
-                                <p class="@if(!config('adminlte.usermenu_image'))mt-0 @endif">
-                                    {{ Auth::user()->name }}
-                                    @if(config('adminlte.usermenu_desc'))
-                                    <small>{{ Auth::user()->adminlte_desc() }}</small>
-                                    @endif
-                                </p>
+                                {{-- <p class="@if(!config('adminlte.usermenu_image'))mt-0 @endif">
+                                    {{$_SESSION['nomeusuario']}}
+                                @if(config('adminlte.usermenu_desc'))
+                                <small>Função do Servidor</small>
+                                @endif
+                                </p> --}}
                             </li>
                             @else
                             @yield('usermenu_header')
@@ -168,38 +182,22 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                             </li>
                             @endif
                             <li class="user-footer">
-                                @if($profile_url)
-                                <a href="{{ $profile_url }}" class="btn btn-default btn-flat">Profile</a>
-                                @endif
+                                <div style="text-align: center;">
+                                    <a href="" class="btn btn-default btn-sm">Perfil do Usuário</a>
 
-                                <a class="btn btn-default btn-flat float-right @if(!$profile_url)btn-block @endif"
+                                </div>
+
+                                <!-- BOTÃO DE SAIR DESATIVADO
+                                <a class="btn btn-default btn-flat float-right "
                                     href="#"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa fa-fw fa-power-off"></i> {{ __('adminlte::adminlte.log_out') }}
                                 </a>
-                                <form id="logout-form" action="{{ $logout_url }}" method="POST" style="display: none;">
-                                    @if(config('adminlte.logout_method'))
-                                    {{ method_field(config('adminlte.logout_method')) }}
-                                    @endif
-                                    {{ csrf_field() }}
-                                </form>
+                                -->
                             </li>
                         </ul>
                     </li>
-                    @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="fa fa-fw fa-power-off"></i> {{ __('adminlte::adminlte.log_out') }}
-                        </a>
-                        <form id="logout-form" action="{{ $logout_url }}" method="POST" style="display: none;">
-                            @if(config('adminlte.logout_method'))
-                            {{ method_field(config('adminlte.logout_method')) }}
-                            @endif
-                            {{ csrf_field() }}
-                        </form>
-                    </li>
-                    @endif
+
                     @endif
                     @if(config('adminlte.right_sidebar'))
                     <li class="nav-item">
@@ -221,7 +219,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
     @if(!config('adminlte.layout_topnav') && !View::getSection('layout_topnav'))
     <aside class="main-sidebar {{config('adminlte.classes_sidebar', 'sidebar-dark-primary elevation-4')}}">
         @if(config('adminlte.logo_img_xl'))
-        <a href="{{ $dashboard_url }}" class="brand-link logo-switch">
+        <a href="{{ route('dashboard') }}" class="brand-link logo-switch">
             <img src="{{ asset(config('adminlte.logo_img', 'vendor/adminlte/dist/img/AdminLTELogo.png')) }}"
                 alt="{{config('adminlte.logo_img_alt', 'AdminLTE')}}"
                 class="{{config('adminlte.logo_img_class', 'brand-image-xl')}} logo-xs">
@@ -229,7 +227,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                 class="{{config('adminlte.logo_img_xl_class', 'brand-image-xs')}} logo-xl">
         </a>
         @else
-        <a href="{{ $dashboard_url }}" class="brand-link {{ config('adminlte.classes_brand') }}">
+        <a href="{{ route('dashboard') }}" class="brand-link {{ config('adminlte.classes_brand') }}">
             <img src="{{ asset(config('adminlte.logo_img', 'vendor/adminlte/dist/img/AdminLTELogo.png')) }}"
                 alt="{{config('adminlte.logo_img_alt', 'AdminLTE')}}"
                 class="{{ config('adminlte.logo_img_class', 'brand-image img-circle elevation-3') }}"
@@ -286,6 +284,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
     </aside>
     @endif
 
+</div>
 </div>
 @stop
 

@@ -30,14 +30,11 @@
 @endif
 
 @section('body')
-<div class="login-page" style="background-image: url('vendor/adminlte/dist/img/fundo.jpg');
+<div class="login-page" style="background-image: url('vendor/adminlte/dist/img/analytics-solutions.jpg');
     background-size: cover; width:100%;">
-    <div class="login-box"
-        style="border-radius: 12px; background: #ffffff; opacity: 100%; position: absolute; z-index: 99;">
-        <div class="login-logo">
-            <img style="width:150px;" src="vendor/adminlte/dist/img/logo.jpg" alt=""><br>
-            <a style="font-weight: 350;" href="{{ $dashboard_url }}">hs<strong>Cidadao</strong></a>
-        </div>
+    <div class="login-box" style="border-radius: 12px; background: #ffffff; opacity: 100%; position: absolute; z-index: 99;">
+        @include('partials.login-logo-and-text')
+
 
         <div class="card">
             <div class="card-body login-card-body" style="opacity: 200%;">
@@ -52,60 +49,42 @@
                     {{ session('success') }}
                 </div>
                 @endif
-                <form action="{{ $login_url }}" method="post">
+                <form action="{{ route('login') }}" method="post">
                     {{ csrf_field() }}
                     <div class="input-group mb-3">
-                        <input type="email" name="email"
-                            class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
-                            value="{{ old('email') }}" placeholder="{{ __('adminlte::adminlte.email') }}" autofocus>
+                        <input type="text" name="cpf" class="form-control" value="{{ old('cpf') }}"
+                            placeholder="Seu CPF" onblur="javascript: formatarCampo(this);" maxlength="14" autofocus required>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <span class="fas fa-user"></span>
                             </div>
                         </div>
-                        @if ($errors->has('email'))
-                        <div class="invalid-feedback">
-                            <strong>{{$errors->first('email')}}</strong>
-                        </div>
-                        @endif
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password"
-                            class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
-                            placeholder="{{ __('adminlte::adminlte.password') }}">
+                        <input type="password" name="senha" class="form-control" placeholder="Sua senha" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
-                        @if ($errors->has('password'))
-                        <div class="invalid-feedback">
-                            <strong>{{$errors->first('password')}}</strong>
-                        </div>
-                        @endif
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button style="border-radius: 4px;" type="submit"
-                                class="btn btn-primary btn-block btn-flat">
+                            <a href="{{ route('resgateSenha') }}">
+                                Esqueci Minha Senha / Primeiro Acesso
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">
                                 {{ __('adminlte::adminlte.sign_in') }}
                             </button>
                         </div>
                     </div>
                 </form>
                 <hr>
-                <p style="text-align: center;" class="mt-2 mb-1">
-                    <a href="{{ route('recuperaSenha') }}">
-                        {{ __('adminlte::adminlte.i_forgot_my_password') }}
-                    </a>
-                </p>
-                @if ($register_url)
-                <p style="text-align: center;" class="mb-0">
-                    <a href="{{ route('cadastroCidadao') }}">
-                        Cadastre-se
-                    </a>
-                </p>
-                @endif
                 @include('includes.copyright')
             </div>
         </div>
