@@ -1,0 +1,432 @@
+label {
+    font-size: 80%;
+}
+
+h3 {
+    font-size: 15px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+td,
+th {
+    font-size: 13px;
+}
+
+.form-control {
+    font-size: 90%;
+}
+
+.row {
+    margin-top: -10px;
+}
+
+
+/* TELA CADASTRO */
+
+@media only screen and (max-width: 980px) {
+    .esconder {
+        display: none;
+    }
+    .formulario {
+        margin-top: 500px;
+    }
+    #teste {
+        font-size: 10%;
+    }
+    label {
+        font-size: 14px;
+        margin-bottom: -12px;
+        margin-top: 1px;
+    }
+    input[type="text"] {
+        font-size: 14px;
+    }
+    .left {
+        text-align: left;
+        align-items: left;
+    }
+    #contrato {
+        text-align: left;
+    }
+}
+
+
+/* Table hover Protocolos */
+
+tr.hide-table-padding td {
+    padding: 0;
+}
+
+.expand-button {
+    position: relative;
+}
+
+.accordion-toggle .expand-button:after {
+    position: absolute;
+    left: .75rem;
+    top: 50%;
+    transform: translate(0, -50%);
+    content: '-';
+}
+
+.accordion-toggle.collapsed .expand-button:after {
+    content: '+';
+}
+
+
+/* Link dos anexos */
+
+.anexo {
+    color: green;
+}
+
+.msgErro {
+    font-size: 12px;
+    color: red;
+    font-weight: bold;
+    margin-top: 1%;
+}
+
+.msgInfo {
+    font-size: 12px;
+    color: #3781f7;
+    font-weight: bold;
+    margin-top: 1%;
+}
+
+.erro {
+    border: 1px solid red;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+.fab {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 250px;
+}
+
+.fab button {
+    width: 48px;
+    height: 48px;
+    border-radius: 30px;
+    background-color: #007bff;
+    border: transparent;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+    font-size: 24px;
+    color: blanchedalmond;
+    -webkit-transition: .2s ease-out;
+    -moz-transition: .2s ease-out;
+    transition: .2s ease-out;
+}
+
+.fab button:focus {
+    outline: none;
+}
+
+.fab button.main {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #007bff;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+}
+
+.fab button.main:before {
+    content: '+';
+}
+
+.fab ul {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0;
+    padding-right: 5px;
+    margin: 0;
+    list-style: none;
+    z-index: 10;
+    -webkit-transition: .2s ease-out;
+    -moz-transition: .2s ease-out;
+    transition: .2s ease-out;
+}
+
+.fab ul li {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    margin-bottom: -10%;
+    background-color: transparent;
+    opacity: 0;
+    -webkit-transition: .3s ease-out;
+    -moz-transition: .3s ease-out;
+    transition: .3s ease-out;
+    float: right;
+}
+
+.fab ul li label {
+    margin-right: 1px;
+    white-space: nowrap;
+    display: block;
+    margin-top: 10px;
+    padding: 5px 8px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+    border-radius: 3px;
+    height: 18px;
+    font-size: 16px;
+    pointer-events: none;
+    opacity: 0;
+    -webkit-transition: .2s ease-out;
+    -moz-transition: .2s ease-out;
+    transition: .2s ease-out;
+    color: #007bff;
+    font-family: 'Segoe UI';
+    height: 30px;
+}
+
+.fab.show button.main,
+.fab.show button.main {
+    outline: none;
+    background-color: lightblue;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .5);
+}
+
+.fab.show button.main:before,
+.fab.show button.main:before {
+    content: '↑';
+}
+
+.fab.show button.main+ul,
+.fab.show button.main+ul {
+    bottom: 70px;
+}
+
+.fab.show button.main+ul li,
+.fab.show button.main+ul li {
+    margin-bottom: 10px;
+    opacity: 1;
+}
+
+.fab.show button.main+ul li:hover label,
+.fab.show button.main+ul li:hover label {
+    opacity: 1;
+}
+
+.normal {
+    background: rgb(100, 149, 237);
+    color: white;
+}
+
+.alta {
+    background-color: orangered;
+    color: white;
+}
+
+.urgente {
+    background-color: red;
+    color: white;
+}
+
+
+/* TIMELINE HORIZONTAL */
+
+p {
+    margin: 0;
+}
+
+.horizontal-timeline-container {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    position: relative;
+    height: 12em;
+}
+
+.horizontal-timeline-container::before {
+    /* this is the horizontal line */
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: cornflowerblue;
+}
+
+.timeline-block {
+    position: relative;
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+
+.timeline-block::after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.timeline-step-counter {
+    background: dodgerblue;
+    border-radius: 50%;
+    top: 50%;
+    line-height: 50px;
+    margin-top: -25px;
+    left: 50%;
+    margin-left: -25px;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    color: white;
+}
+
+.timeline-content {
+    background: dodgerblue;
+    border-radius: 5px;
+    box-shadow: 0 2px 0 #d8d8d8;
+    padding: 1em;
+    position: absolute;
+    width: 100%;
+    height: 45px;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    text-align: center;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    margin-left: -7px;
+    top: 100%;
+    height: 0;
+    width: 0;
+    border: 7px solid transparent;
+    border-top: 7px solid mediumseagreen;
+}
+
+.selectCustom {
+    border-radius: 5px;
+    font-size: 13px;
+    color: dimgrey;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2px;
+    background-color: whitesmoke;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+.inputFileCustom {
+    border-radius: 5px;
+    font-size: 13px;
+    color: dimgrey;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+    background-color: whitesmoke;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+.labelCustom {
+    margin-bottom: -1%;
+    color: darkslategray;
+}
+
+.cardTitleCustom {
+    font-size: 15px;
+}
+
+.cardToolsCustom {
+    margin-bottom: -1.5%;
+    margin-top: -1%;
+}
+
+.cardOutlineCustom {
+    margin-top: -0.8%;
+}
+
+.inputCustom {
+    font-size: 13px;
+    padding: 4px;
+    height: 50%;
+}
+
+.inputCustomBlue {
+    color: white;
+}
+
+
+/* CUSTOM TABLE */
+
+.table td,
+th {
+    padding: .3rem;
+    white-space: nowrap;
+    width: 10px;
+    height: 20px;
+    overflow: hidden
+}
+
+.tdMaxWidth {
+    width: 20%;
+}
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+    background-color: powderblue;
+    /*cursor: pointer; */
+}
+
+.selectCaixaEntrada {
+    padding: 4px;
+}
+
+.limitWidth {
+    max-width: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 980px) {
+    .mobile {
+        display: block;
+    }
+}
+
+.select2-container .select2-selection--single {
+    border-radius: 5px !important;
+    font-size: 13px !important;
+    color: dimgrey !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    background-color: whitesmoke !important;
+    border: 1px solid transparent !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .2) !important;
+}
+
+.select2 {
+    width: 100%!important;
+}
+
+.btn-outline-info:hover {
+    color: #fff !important;
+    background-color: #17a2b8 !important;
+    border-color: #17a2b8 !important;
+}
+
+.btn-outline-info {
+    color: #17a2b8 !important;
+    border-color: #17a2b8 !important;
+}
