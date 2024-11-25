@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/login-novo', 'Autenticacao\LoginController@loginView')->name('loginView');
+Route::get('/esqueci-minha-senha', 'Autenticacao\LoginController@resetPasswordView')->name('resetPasswordView');
+
+
+
 // ROTA PARA CONFIGURAÇÃO DO BANCO
 Route::get('/config/{serverName}/{dbName}', 'ConfigController@index')->name('index');
 

@@ -20,6 +20,11 @@ class LoginController extends Controller
         return view('autenticacao.login');
     }
 
+    public function loginView()
+    {
+        return view('auth.login');
+    }
+
     public function setClientSessions()
     {
         $client = DB::table('hscad_dadosempresa')
